@@ -17,6 +17,15 @@
             a:hover{
                 color: red;
             }
+            #stId{
+                border-style: dot-dot-dash;
+                color: #ff4d65;
+                background-color: azure;
+            }
+            #btncommit{
+                border-style: dashed;
+                color: teal;
+            }
         </style>
     </head>
     <body>
@@ -24,7 +33,7 @@
         <a id="allstudent" href="/student/getallstudent">获取所有学生</a><br>
         <form action="/student/getonestudent" method="get">
             stId: <input id="stId" type="text" name="stId"/>&emsp;
-            <input type="submit" 提交查询>
+            <input id="btncommit" type="submit" 提交查询>
         </form>
 
     </body>
