@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.learn.bootmybatisredisactivemq.mapper.StudentMapper">
+    <select id="getAllStudents" resultType="com.zgy.learn.bootmybatisredisactivemq.pojo.Student">
+        select stId, stName, stAge, stPhoneNo, stGender, stClass, stHome from student;
+    </select>
+
+    <select id="getStudentById" parameterType="integer"
+            resultType="com.zgy.learn.bootmybatisredisactivemq.pojo.Student">
+        select stId, stName, stAge, stPhoneNo, stGender, stClass, stHome from student where stId = #{stId}
+    </select>
+    
+    <insert id="addStudent" parameterType="object">
+--         insert into student(stName, stAge, stPhoneNo, stGender, stClass, stHome) value stId, stName, stAge, stPhoneNo, stGender, stClass, stHome
+    </insert>
+    
+    <delete id="deleteStudentById" parameterType="integer">
+        delete from student where stId = #{stId}
+    </delete>
+
+    <update id="updateStudentById" parameterType="object">
+    </update>
+</mapper>
