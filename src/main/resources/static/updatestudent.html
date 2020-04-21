@@ -46,7 +46,7 @@
                                 "<td>" + data[i].stClass + "</td>" +
                                 "<td>" + data[i].stHome + "</td>" +
                                 "<td>" + update + "</td>" +
-                                "<td>" + delete + "</td>" +
+                                "<td>" + delete +"</td>" +
                                 "</tr>"
                         }
                     }
@@ -75,6 +75,47 @@
                 </tbody>
             </table>
             <input type="submit" value="获取学生信息" onclick="getallstudent()">
+
+            <div id="update">
+                <input type="text" name="stId"/>
+                <input type="submit" value="获取要更新的值的信息" onclick="getonestudent()">
+            </div>
+            <form action="/student/updatestudent" method="post">
+                学生姓名：<input id="st1Name" name="stName"><br>
+                学生年龄：<input id="st1Age" name="stAge"><br>
+                学生手机：<input id="st1PhoneNo" name="stPhoneNo"><br>
+                学生性别：<input id="st1Gender" name="stGender"><br>
+                学生班级：<input id="st1Class" name="stClass"><br>
+                家庭住址：<input id="st1Home" name="stHome"><br>
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                <input id="btnsubmit" type="submit" value="点击提交" style="font-size: medium">
+            </form>
         </div>
+        <script>
+            <!-- xhr, 这个就是ajax的方式获取值 -->
+            function getonestudent() {
+                $.ajax({
+                    url: "/student/getonestudent",
+                    type: "get",
+                    dataType: "json",
+                    data: {},
+                    success: function (data) {
+                        console.log(data)
+                        console.log("1234===>")
+                        console.log(data.length)
+                        if (data.length == 1) {
+                            $('#st1Id').val(data[i].stId);
+                            $('#st1Name').val(data[i].stName);
+                            $('#st1Age').val(data[i].stAge);
+                            $('#st1PhoneNo').val(data[i].stPhoneNo);
+                            $('#st1Gender').val(data[i].stGender);
+                            $('#st1Class').val(data[i].stClass);
+                            $('#st1Home').val(data[i].stHome);
+                        }
+                    }
+                })
+            }
+
+        </script>
     </body>
 </html>
