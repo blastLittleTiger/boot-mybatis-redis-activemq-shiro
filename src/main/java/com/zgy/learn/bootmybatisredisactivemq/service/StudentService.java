@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Service
 public class StudentService {
-    @Autowired
+    @Autowired(required = false)
     StudentMapper mapper;
 
     public Student getStudentById(Integer stId) {
@@ -24,5 +24,10 @@ public class StudentService {
 
     public List<Student> getAllStudents() {
         return mapper.getAllStudents();
+    }
+
+    public Student addStudent(Student student){
+        mapper.addStudent(student);
+        return student;
     }
 }

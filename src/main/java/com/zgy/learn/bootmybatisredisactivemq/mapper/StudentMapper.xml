@@ -11,13 +11,19 @@
             resultType="com.zgy.learn.bootmybatisredisactivemq.pojo.Student">
         select stId, stName, stAge, stPhoneNo, stGender, stClass, stHome from student where stId = #{stId}
     </select>
-    
-    <insert id="addStudent" parameterType="object">
---         insert into student(stName, stAge, stPhoneNo, stGender, stClass, stHome) value stId, stName, stAge, stPhoneNo, stGender, stClass, stHome
+
+    <!--<insert id="addStudent" parameterType="object">-->
+    <!--    insert into student(stName, stAge, stPhoneNo, stGender, stClass, stHome) value stId, stName, stAge,
+    stPhoneNo, stGender, stClass, stHome-->
+    <!--</insert>-->
+    <!-- 类型就是传入参数的类型 -->
+    <insert id="addStudent" parameterType="com.zgy.learn.bootmybatisredisactivemq.pojo.Student">
+        insert into student(stName, stAge, stPhoneNo, stGender, stClass, stHome)
+        values (#{stName, jdbcType=VARCHAR}, #{stAge, jdbcType=INTEGER}, #{stPhoneNo, jdbcType=VARCHAR}, #{stGender, jdbcType=VARCHAR}, #{stClass}, #{stHome})
     </insert>
-    
+
     <delete id="deleteStudentById" parameterType="integer">
-        delete from student where stId = #{stId}
+        delete from student where stId = #{stId, jdbcType=INTEGER}
     </delete>
 
     <update id="updateStudentById" parameterType="object">
