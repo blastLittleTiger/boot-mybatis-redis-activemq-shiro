@@ -31,14 +31,13 @@
     </update>
 
     <resultMap id="basicInfo" type="com.zgy.learn.bootmybatisredisactivemq.pojo.Student">
-        <result column="stId" property="stId" jdbcType="INTEGER"/>
+        <id column="stId" property="stId"/>
         <result column="stName" property="stName" jdbcType="VARCHAR"/>
         <result column="stGender" property="stGender" jdbcType="VARCHAR"/>
         <result column="stClass" property="stClass" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="studentBasicInfo" resultMap="basicInfo" parameterType="integer">
-        select stId, stName, stGender, stClass from student where stId
-       =#{stId}
+        select stId, stName, stGender, stClass from student where stId =#{stId}
     </select>
 </mapper>
