@@ -34,4 +34,13 @@ public class StudentService {
     public Integer deleteStudentById(Integer stId){
         return mapper.deleteStudentById(stId);
     }
+
+    public Integer updateStudentById(Student student){
+        return mapper.updateStudentById(student);
+
+    }
+
+    public Student studentBasicInfo(Integer stId) {
+        return mapper.studentBasicInfo(stId);
+    }
 }

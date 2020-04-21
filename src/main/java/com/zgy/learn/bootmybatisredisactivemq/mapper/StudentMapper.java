@@ -16,4 +16,6 @@ public interface StudentMapper {
     public Integer deleteStudentById(Integer stId);
 
     public Integer updateStudentById(Student student);
+
+    public Student studentBasicInfo(Integer stId);
 }
