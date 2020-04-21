@@ -30,4 +30,8 @@ public class StudentService {
         mapper.addStudent(student);
         return student;
     }
+
+    public Integer deleteStudentById(Integer stId){
+        return mapper.deleteStudentById(stId);
+    }
 }
