@@ -49,4 +49,19 @@ public class StudentController {
         log.info("delete的结果: {}, id是{}！", res, stId);
         return res >= 1 ? "删除成功！" : "删除失败！";
     }
+
+    @RequestMapping(value = "updatestudent", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateStudentById(Integer stId) {
+        Integer res = service.deleteStudentById(stId);
+        log.info("update的结果: {}, id是{}！", res, stId);
+        return res >= 1 ? "更新成功！" : "更新失败！";
+    }
+
+
+    @RequestMapping("getonestudentbasicinfo")
+    @ResponseBody
+    public String getonestudentbasicinfo(Integer stId) throws JsonProcessingException {
+        return JSONUtil.getJsonFromObject(service.studentBasicInfo(stId));
+    }
 }
