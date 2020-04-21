@@ -28,28 +28,31 @@ public class StudentService {
         return mapper.getAllStudents();
     }
 
-    public Student addStudent(Student student){
+    public Student addStudent(Student student) {
         mapper.addStudent(student);
         return student;
     }
 
-    public Integer deleteStudentById(Integer stId){
+    public Integer deleteStudentById(Integer stId) {
         return mapper.deleteStudentById(stId);
     }
 
-    public Integer updateStudentById(Student student){
+    public Integer updateStudentById(Student student) {
         return mapper.updateStudentById(student);
 
     }
 
-    // 目的是为了返回部分的信息
-    public Student studentBasicInfo(Integer stId) {
+    // 目的是为了返回部分的信息, 但是直接返回不得行，还是要自己处理一下, 如下是可以的。
+    // public Student studentBasicInfo(Integer stId) {
+    //     Student student = mapper.studentBasicInfo(stId);
+    //     return student;
+    public Map studentBasicInfo(Integer stId) {
         Student student = mapper.studentBasicInfo(stId);
-//        Map<String, Object> map = new HashMap<>();
-//        map.put("stId", student.getStId());
-//        map.put("stAge",student.getStAge());
-//        map.put("stGender",student.getStGender());
-//        map.put("stClass",student.getStClass());
-        return student;
+        Map<String, Object> map = new HashMap<>();
+        map.put("stId", student.getStId());
+        map.put("stName", student.getStName());
+        map.put("stGender", student.getStGender());
+        map.put("stClass", student.getStClass());
+        return map;
     }
 }
