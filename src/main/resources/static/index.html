@@ -33,6 +33,16 @@
                 font-family: 方正兰亭超细黑简体;
                 font-size: 25px;
             }
+
+            a#updatestudent{
+                border-style: initial;
+                color: #ccbc6e;
+                font-family: 方正兰亭超细黑简体;
+                font-size: 25px;
+            }
+            a#updatestudent:hover{
+                color: tomato;
+            }
         </style>
     </head>
     <body>
@@ -42,7 +52,11 @@
         <a id="updatestudent" href="updatestudent.html">更新学生</a><br>
         <form action="/student/getonestudent" method="get">
             stId: <input id="stId" type="text" name="stId"/>&emsp;
-            <input id="btnCommit" type="submit" 提交查询>
+            <input id="btnCommit" type="submit" value="提交查询">
+        </form>
+        <form action="/student/getonestudent" method="get">
+            stId: <input id="stBasicInfo" type="text" name="stId"/>&emsp;
+            <input id="btnbasicCommit" type="submit" value="查询基本信息" >
         </form>
 
         <form action="/student/deletestudent" method="post">
