@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>更新学生</title>
+    </head>
+    <style type="text/css">
+        #students {
+            border-style: solid;
+            border-color: deepskyblue;
+            color: chocolate;
+            padding-left: 5px;
+            border-width: 1px
+        }
+
+        th {
+            border-style: solid;
+            border-width: 1px
+        }
+
+        td {
+            border-style: solid;
+            border-width: 1px
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        <!-- xhr, 这个就是ajax的方式获取值 -->
+        function getallstudent() {
+            $.ajax({
+                url: "/student/getallstudent",
+                type: "get",
+                dataType: "json",
+                data: {},
+                success: function (data) {
+                    console.log(data)
+                    var myHtmlContent = "";
+                    if (data != null) {
+                        for (var i = 0; i < data.length; i++) {
+                            myHtmlContent += "<tr>" +
+                                "<td>" + data[i].stId + "</td>" +
+                                "<td>" + data[i].stName + "</td>" +
+                                "<td>" + data[i].stAge + "</td>" +
+                                "<td>" + data[i].stPhoneNo + "</td>" +
+                                "<td>" + data[i].stGender + "</td>" +
+                                "<td>" + data[i].stClass + "</td>" +
+                                "<td>" + data[i].stHome + "</td>" +
+                                "<td>" + update + "</td>" +
+                                "<td>" + delete + "</td>" +
+                                "</tr>"
+                        }
+                    }
+                    $('#students').html(myHtmlContent);
+                }
+            })
+        }
+
+        window.onload = getallstudent();
+    </script>
+    <body>
+        <div>
+            <table id="allStudent" style="margin: 20px; border: deepskyblue;
+            border-width: thick; border-style: wave; border-width: 1px">
+                <th>学生&nbsp;i&nbsp;d</th>
+                <th>学生姓名</th>
+                <th>学生年龄</th>
+                <th>学生电话</th>
+                <th>学生性别</th>
+                <th>学生班级</th>
+                <th>家庭住址</th>
+                <th id="updateOne">update</th>
+                <th id="deleteOne">delete</th>
+                <tbody id="students">
+
+                </tbody>
+            </table>
+            <input type="submit" value="获取学生信息" onclick="getallstudent()">
+        </div>
+    </body>
+</html>
