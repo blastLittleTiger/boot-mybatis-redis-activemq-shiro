@@ -5,7 +5,9 @@ import com.zgy.learn.bootmybatisredisactivemq.pojo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: renjiaxin
@@ -40,7 +42,14 @@ public class StudentService {
 
     }
 
+    // 目的是为了返回部分的信息
     public Student studentBasicInfo(Integer stId) {
-        return mapper.studentBasicInfo(stId);
+        Student student = mapper.studentBasicInfo(stId);
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("stId", student.getStId());
+//        map.put("stAge",student.getStAge());
+//        map.put("stGender",student.getStGender());
+//        map.put("stClass",student.getStClass());
+        return student;
     }
 }
