@@ -81,14 +81,14 @@
                 <input type="submit" value="获取要更新的值的信息" onclick="getonestudent()">
             </div>
             <form action="/student/updatestudent" method="post">
-                学生姓名：<input id="st1Id" name="stId"><br>
+                学生&nbsp;I&nbsp;&nbsp;D：<input id="st1Id" name="stId"><br>
                 学生姓名：<input id="st1Name" name="stName"><br>
                 学生年龄：<input id="st1Age" name="stAge"><br>
                 学生手机：<input id="st1PhoneNo" name="stPhoneNo"><br>
                 学生性别：<input id="st1Gender" name="stGender"><br>
                 学生班级：<input id="st1Class" name="stClass"><br>
                 家庭住址：<input id="st1Home" name="stHome"><br>
-                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
                 <input id="btnsubmit" type="submit" value="更新员工信息" style="font-size: medium">
             </form>
         </div>
@@ -102,8 +102,8 @@
                     data: {"stId": $("#updateStIdText").val()},  // 从input之中获取输入的值
                     success: function (data) {
                         console.log(data)
-                        console.log("1234===>")
-                        console.log(data.length)
+                        // console.log("1234===>")
+                        // console.log(data.length)
                         if (data!=null) {
                             $("#st1Id").val(data.stId);
                             $("#st1Name").val(data.stName);
