@@ -20,6 +20,6 @@ public interface StudentMapper {
 
     public Student studentBasicInfo(Integer stId);
 
-    // 返回一个list的类型
+    // 返回一个map的类型, 接收一个map的类型
     public Map getStudentByNameGender(Map<String, Object> map);
 }
