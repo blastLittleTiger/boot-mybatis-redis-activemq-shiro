@@ -52,9 +52,9 @@ public class StudentController {
 
     @RequestMapping(value = "updatestudent", method = RequestMethod.POST)
     @ResponseBody
-    public String updateStudentById(Integer stId) {
-        Integer res = service.deleteStudentById(stId);
-        log.info("update的结果: {}, id是{}！", res, stId);
+    public String updateStudentById(Student student) {
+        Integer res = service.updateStudentById(student);
+        log.info("update的结果: {}, id是{}！", res, student.getStId());
         return res >= 1 ? "更新成功！" : "更新失败！";
     }
 
