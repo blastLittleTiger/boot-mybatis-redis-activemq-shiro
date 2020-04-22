@@ -41,6 +41,18 @@
         select stId, stName, stGender, stClass from student where stId =#{stId}
     </select>
 
+    <!-- 整合部分信息 -->
+    <resultMap id="importantInfo" type="map">
+        <result column="stId" jdbcType="INTEGER"/>
+        <result column="stName" jdbcType="VARCHAR"/>
+        <result column="stGender" jdbcType="VARCHAR"/>
+        <result column="stClass" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="studentImportantInfo" resultMap="importantInfo" parameterType="integer">
+        select stId, stName, stGender, stClass from student where stId =#{stId}
+    </select>
+
     <!-- 返回为map的话， 则只要求必须只有一个的值 -->
     <select id="getStudentByNameGender" resultType="map">
         select stId, stName, stAge, stPhoneNo, stGender, stClass, stHome from student where stGender = #{stGender} and stName like #{stName}

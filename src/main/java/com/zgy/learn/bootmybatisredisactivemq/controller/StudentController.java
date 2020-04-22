@@ -62,11 +62,16 @@ public class StudentController {
         return res >= 1 ? "更新成功！" : "更新失败！";
     }
 
-
     @RequestMapping("getonestudentbasicinfo")
     @ResponseBody
     public String getonestudentbasicinfo(Integer stId) throws JsonProcessingException {
         return JSONUtil.getJsonFromObject(service.studentBasicInfo(stId));
+    }
+
+    @RequestMapping("getonestudentimportantinfo")
+    @ResponseBody
+    public String getonestudentimportantinfo(Integer stId) throws JsonProcessingException {
+        return JSONUtil.getJsonFromObject(service.studentImportantInfo(stId));
     }
 
     @RequestMapping(value = "getstudentbynamegender", method = RequestMethod.POST)

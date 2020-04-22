@@ -56,6 +56,11 @@ public class StudentService {
         return map;
     }
 
+    public Map<String, Object> studentImportantInfo(Integer stId) {
+        Map<String, Object> mp = mapper.studentImportantInfo(stId);
+        return mp;
+    }
+
     public Map getStudentByNameGender(Map<String, Object> map) {
         Map<String, Object> resultMp = new HashMap<>();
         resultMp = mapper.getStudentByNameGender(map);
