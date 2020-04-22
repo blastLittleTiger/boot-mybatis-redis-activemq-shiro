@@ -43,6 +43,11 @@
             a#updatestudent:hover{
                 color: tomato;
             }
+            span{
+                font-size: medium;
+                font-style: italic;
+                color: aquamarine;
+            }
         </style>
     </head>
     <body>
@@ -55,13 +60,21 @@
             <input id="btnCommit" type="submit" value="提交查询">
         </form>
         <form action="/student/getonestudentbasicinfo" method="get">
-            stId: <input id="stBasicInfo" type="text" name="stId"/>&emsp;
+            输入学生stId，查询基本信息: <input id="stBasicInfo" type="text" name="stId"/>&emsp;
             <input id="btnbasicCommit" type="submit" value="查询基本信息" >
         </form>
 
         <form action="/student/deletestudent" method="post">
             删除学生, 输入stId: <input id="stDelete" type="text" name="stId"/>&emsp;
-            <input id="btnDelete" type="submit" 删除学生>
+            <input id="btnDelete" type="submit" value="删除学生">
+        </form>
+
+
+        <form action="/student/getstudentbynamegender" method="post">
+            <span>stName&nbsp;&nbsp;</span>: <input id="stMohucha1" type="text" name="stName"/><br>
+            <span>stGender</span>: <input id="stMohucha2" type="text" name="stGender"/><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
+            <input id="btnMohucha" type="submit" value="姓名和性别模糊查询">
         </form>
 
     </body>

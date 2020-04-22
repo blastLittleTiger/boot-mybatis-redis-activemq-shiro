@@ -8,8 +8,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author: renjiaxin
@@ -63,5 +67,14 @@ public class StudentController {
     @ResponseBody
     public String getonestudentbasicinfo(Integer stId) throws JsonProcessingException {
         return JSONUtil.getJsonFromObject(service.studentBasicInfo(stId));
+    }
+
+    @RequestMapping(value = "getstudentbynamegender", method = RequestMethod.POST)
+    @ResponseBody
+    public String getStudentByNameGender(@RequestParam("stName") String stName, @RequestParam("stGender") String stGender) throws JsonProcessingException {
+        Map<String, Object> map = new HashMap<>();
+        map.put("stName", "%" + stName + "%"); // like模糊查询
+        map.put("stGender", stGender);
+        return JSONUtil.getJsonFromObject(service.getStudentByNameGender(map));
     }
 }

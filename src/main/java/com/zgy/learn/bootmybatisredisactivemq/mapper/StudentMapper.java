@@ -4,6 +4,7 @@ import com.zgy.learn.bootmybatisredisactivemq.pojo.Student;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface StudentMapper {
@@ -18,4 +19,7 @@ public interface StudentMapper {
     public Integer updateStudentById(Student student);
 
     public Student studentBasicInfo(Integer stId);
+
+    // 返回一个list的类型
+    public Map getStudentByNameGender(Map<String, Object> map);
 }

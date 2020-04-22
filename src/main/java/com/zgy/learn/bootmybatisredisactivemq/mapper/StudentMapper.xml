@@ -40,4 +40,9 @@
     <select id="studentBasicInfo" resultMap="basicInfo" parameterType="integer">
         select stId, stName, stGender, stClass from student where stId =#{stId}
     </select>
+
+    <!-- 返回为map的话， 则只要求必须只有一个的值, 如果是list, 可以有多个，我们输入的参数，可以通过map， list等输入 -->
+    <select id="getStudentByNameGender" resultType="map">
+        select stId, stName, stAge, stPhoneNo, stGender, stClass, stHome from student where stGender = #{stGender} and stName like #{stName}
+    </select>
 </mapper>
