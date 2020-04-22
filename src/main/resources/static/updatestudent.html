@@ -103,14 +103,16 @@
                         console.log(data)
                         console.log("1234===>")
                         console.log(data.length)
-                        if (data.length == 1) {
-                            $("#st1Id").val(data[i].stId);
-                            $("#st1Name").val(data[i].stName);
-                            $("#st1Age").val(data[i].stAge);
-                            $("#st1PhoneNo").val(data[i].stPhoneNo);
-                            $("#st1Gender").val(data[i].stGender);
-                            $("#st1Class").val(data[i].stClass);
-                            $("#st1Home").val(data[i].stHome);
+                        if (data!=null) {
+                            $("#st1Id").val(data.stId);
+                            $("#st1Name").val(data.stName);
+                            $("#st1Age").val(data.stAge);
+                            $("#st1PhoneNo").val(data.stPhoneNo);
+                            $("#st1Gender").val(data.stGender);
+                            $("#st1Class").val(data.stClass);
+                            $("#st1Home").val(data.stHome);
+                        }else{
+                            window.alert("没有这个学生！")
                         }
                     }
                 })
