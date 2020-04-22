@@ -4,29 +4,34 @@
         <meta charset="UTF-8">
         <title>Springboot2.x和Mybatis的整合</title>
         <style>
-            #big{
+            #big {
                 font-family: 方正兰亭超细黑简体;
                 font-size: x-large;
                 color: deepskyblue;
             }
-            a#allstudent{
+
+            a#allstudent {
                 font-family: 方正兰亭超细黑简体;
                 font-size: x-large;
                 color: lightblue;
             }
-            a:hover{
+
+            a:hover {
                 color: red;
             }
-            #stId{
+
+            #stId {
                 border-style: dot-dot-dash;
                 color: #ff4d65;
                 background-color: azure;
             }
-            #btnCommit #btnDelete{
+
+            #btnCommit #btnDelete {
                 border-style: dashed;
                 color: teal;
             }
-            #addstudent{
+
+            #addstudent {
                 border-style: initial;
                 color: darkorchid;
                 background: #fff9c3;
@@ -34,19 +39,29 @@
                 font-size: 25px;
             }
 
-            a#updatestudent{
+            a#updatestudent {
                 border-style: initial;
                 color: #ccbc6e;
                 font-family: 方正兰亭超细黑简体;
                 font-size: 25px;
             }
-            a#updatestudent:hover{
+
+            a#updatestudent:hover {
                 color: tomato;
             }
-            span{
+
+            span {
                 font-size: medium;
                 font-style: italic;
                 color: aquamarine;
+            }
+
+            span.h2 {
+                font-size: medium;
+                font-feature-settings: revert;
+                font-family: "Arial Black";
+                font-style: italic;
+                color: tomato;
             }
         </style>
     </head>
@@ -61,7 +76,7 @@
         </form>
         <form action="/student/getonestudentbasicinfo" method="get">
             输入学生stId，查询基本信息: <input id="stBasicInfo" type="text" name="stId"/>&emsp;
-            <input id="btnbasicCommit" type="submit" value="查询基本信息" >
+            <input id="btnbasicCommit" type="submit" value="查询基本信息">
         </form>
 
         <form action="/student/deletestudent" method="post">
@@ -71,11 +86,17 @@
 
 
         <form action="/student/getstudentbynamegender" method="post">
-            <span>stName&nbsp;&nbsp;</span>: <input id="stMohucha1" type="text" name="stName"/><br>
-            <span>stGender</span>: <input id="stMohucha2" type="text" name="stGender"/><br>
+            <span>stName&nbsp;&nbsp;</span>: <input id="stMohucha11" type="text" name="stName"/><br>
+            <span>stGender</span>: <input id="stMohucha12" type="text" name="stGender"/><br>
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;
-            <input id="btnMohucha" type="submit" value="姓名和性别模糊查询">
+            <input id="btnMohucha1" type="submit" value="姓名和性别模糊查询">
         </form>
 
+        <form action="/student/getstudentbynamegender2" method="post">
+            <span class="h2">stName&nbsp;&nbsp;</span>: <input id="stMohucha21" type="text" name="stName"/><br>
+            <span class="h2">stGender</span>: <input id="stMohucha22" type="text" name="stGender"/><br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="btnMohucha2" type="submit" value="姓名和性别模糊查询">
+        </form>
     </body>
 </html>

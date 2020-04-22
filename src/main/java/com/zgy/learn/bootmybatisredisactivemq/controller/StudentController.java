@@ -77,4 +77,13 @@ public class StudentController {
         map.put("stGender", stGender);
         return JSONUtil.getJsonFromObject(service.getStudentByNameGender(map));
     }
+
+    @RequestMapping(value = "getstudentbynamegender2", method = RequestMethod.POST)
+    @ResponseBody
+    public String getStudentByNameGender2(@RequestParam("stName") String stName, @RequestParam("stGender") String stGender) throws JsonProcessingException {
+        Map<String, Object> map = new HashMap<>();
+        map.put("stName", "%" + stName + "%"); // like模糊查询
+        map.put("stGender", stGender);
+        return JSONUtil.getJsonFromObject(service.getStudentByNameGender2(map));
+    }
 }

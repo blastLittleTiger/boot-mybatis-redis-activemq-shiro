@@ -61,4 +61,8 @@ public class StudentService {
         resultMp = mapper.getStudentByNameGender(map);
         return resultMp;
     }
+
+    public List<Student> getStudentByNameGender2(Map<String, Object> map) {
+        return mapper.getStudentByNameGender2(map);
+    }
 }
