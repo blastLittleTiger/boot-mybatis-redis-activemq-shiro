@@ -53,7 +53,7 @@
         select stId, stName, stGender, stClass from student where stId =#{stId}
     </select>
 
-    <!-- 返回为map的话， 则只要求必须只有一个的值 -->
+    <!-- 返回为map的话， 则只要求必须只有一个的值，此处的stClass, stHome写不写，在返回里面都有完整的信息，所以我们后端去处理需要显示返回哪些信息 -->
     <select id="getStudentByNameGender" resultType="map">
         select stId, stName, stAge, stPhoneNo, stGender, stClass, stHome from student where stGender = #{stGender} and stName like #{stName}
     </select>
