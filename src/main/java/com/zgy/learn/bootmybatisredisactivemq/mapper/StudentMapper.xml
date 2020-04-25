@@ -43,10 +43,10 @@
 
     <!-- 整合部分信息 -->
     <resultMap id="importantInfo" type="map">
-        <result column="stId" jdbcType="INTEGER"/>
-        <result column="stName" jdbcType="VARCHAR"/>
-        <result column="stGender" jdbcType="VARCHAR"/>
-        <result column="stClass" jdbcType="VARCHAR"/>
+        <result column="stId" jdbcType="INTEGER" javaType="Integer"/>
+        <result column="stName" jdbcType="VARCHAR" javaType="String"/>
+        <result column="stGender" jdbcType="VARCHAR" javaType="String"/>
+        <result column="stClass" jdbcType="VARCHAR" javaType="String"/>
     </resultMap>
 
     <select id="studentImportantInfo" resultMap="importantInfo" parameterType="integer">
