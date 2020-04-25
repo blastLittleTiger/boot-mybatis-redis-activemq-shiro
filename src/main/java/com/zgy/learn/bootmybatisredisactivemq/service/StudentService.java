@@ -64,6 +64,7 @@ public class StudentService {
     public Map getStudentByNameGender(Map<String, Object> map) {
         Map<String, Object> resultMp = new HashMap<>();
         resultMp = mapper.getStudentByNameGender(map);
+        System.out.println(resultMp);
         return resultMp;
     }
 
