@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Author: renjiaxin
  * @Despcription:
@@ -32,5 +35,17 @@ public class TeacherController {
     @ResponseBody
     public String getallteacher() throws JsonProcessingException {
         return JSONUtil.getJsonFromObject(service.getAllTeachers());
+    }
+
+    /**
+     * 使用map传值
+     */
+    @RequestMapping("getteacherbynamegender")
+    @ResponseBody
+    public String getteachernamegender(String name, String gender) throws JsonProcessingException {
+        Map<String, Object> map = new HashMap<>();
+        map.put("teName", name);
+        map.put("teGender", gender);
+        return JSONUtil.getJsonFromObject(service.getTeacherByNameAndGender(map));
     }
 }

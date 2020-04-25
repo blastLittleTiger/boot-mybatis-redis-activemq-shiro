@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: renjiaxin
@@ -24,6 +25,10 @@ public class TeacherService {
 
     public List<Teacher> getAllTeachers() {
         return mapper.getAllTeachers();
+    }
+
+    public  Teacher getTeacherByNameAndGender(Map<String, Object> map){
+        return  mapper.getTeacherByNameAndGender(map);
     }
 
 }
