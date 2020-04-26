@@ -5,7 +5,8 @@
 <mapper namespace="com.zgy.learn.bootmybatisredisactivemq.mapper.CityMapper">
 
     <resultMap id="mySouvenir" type="com.zgy.learn.bootmybatisredisactivemq.pojo.City">
-        <id column="ctId" property="ctId"/>
+        <!-- 下面的几个结果， 其实都是， 加不加javaType和jdbcType都是可以的，一般可以省略，但是最好加上-->
+        <id column="ctId" property="ctId" javaType="integer" jdbcType="INTEGER"/>
         <result column="ctName" property="ctName"/>
         <result column="ctProvince" property="ctProvince"/>
         <collection property="souvenirs" ofType="com.zgy.learn.bootmybatisredisactivemq.pojo.Souvenir">
