@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgy.learn.bootmybatisredisactivemq.mapper.CityMapper">
+
+    <resultMap id="mySouvenir" type="com.zgy.learn.bootmybatisredisactivemq.pojo.City">
+        <id column="ctId" jdbcType="INTEGER"/>
+        <result column="ctName" jdbcType="VARCHAR"/>
+        <result column="ctProvince" jdbcType="VARCHAR"/>
+        <collection property="souvenirs" ofType="com.zgy.learn.bootmybatisredisactivemq.pojo.Souvenir" column="soId">
+            <id column="s.soId" property="soId" jdbcType="INTEGER"/>         <!-- 这里的column对应的是下面查询的别名，而不是表字段名 -->
+            <result column="name" property="soName" jdbcType="VARCHAR"/> <!-- property对应JavaBean中的属性名 -->
+            <result column="s.ctId" property="ctId" jdbcType="VARCHAR"/>
+        </collection>
+    </resultMap>
+    <select id="getSouvenirByName" parameterType="string" resultMap="mySouvenir">
+        select c.ctId, c.ctName, c.ctProvince, s.soId, s.soName as name, s.ctId from city as c
+        LEFT JOIN souvenir as s ON c.ctId = s.ctId where ctName = #{ctName};
+    </select>
+</mapper>
