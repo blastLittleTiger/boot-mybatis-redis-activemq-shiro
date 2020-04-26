@@ -26,4 +26,7 @@ public interface TeacherMapper {
             @Result(property = "teCourse", column = "teCourse")
     })
     public Teacher getTeacherByNameAndGender(Map<String, Object> map);
+
+    @Select("select * from teacher where teId > #{teId} limit #{page}, #{pageSize}")
+    public List<Teacher> getTeacherWithPage(Integer teId, Integer page, Integer pageSize);
 }

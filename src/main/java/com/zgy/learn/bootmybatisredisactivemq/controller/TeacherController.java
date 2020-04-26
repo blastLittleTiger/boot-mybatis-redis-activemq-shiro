@@ -48,4 +48,13 @@ public class TeacherController {
         map.put("teGender", gender);
         return JSONUtil.getJsonFromObject(service.getTeacherByNameAndGender(map));
     }
+
+    /**
+     * pageSize和page, 分页
+     */
+    @RequestMapping("getteacherbywithpage")
+    @ResponseBody
+    public String getteacherbywithpage(Integer teId, Integer page, Integer pageSize) throws JsonProcessingException {
+        return JSONUtil.getJsonFromObject(service.getTeacherWithPage(teId, page, pageSize));
+    }
 }

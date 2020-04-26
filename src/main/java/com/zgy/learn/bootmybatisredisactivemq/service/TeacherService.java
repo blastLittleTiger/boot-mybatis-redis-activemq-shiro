@@ -31,4 +31,8 @@ public class TeacherService {
         return  mapper.getTeacherByNameAndGender(map);
     }
 
+    public List<Teacher> getTeacherWithPage(Integer teId, Integer page, Integer pageSize) {
+        return mapper.getTeacherWithPage(teId, page, pageSize);
+    }
+
 }
