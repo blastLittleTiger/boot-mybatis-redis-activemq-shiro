@@ -25,8 +25,6 @@ public interface ParentsMapper {
     /**
      * 增删改，返回的都是受影响的行数，只有查返回的是需要的数据
      */
-    List<Student> getParentsKids2(Integer parentId);
-
     int addParents(Map<String, Object> map);
 
     int deleteParents(Integer parentId);
