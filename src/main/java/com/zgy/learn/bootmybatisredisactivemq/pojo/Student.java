@@ -24,4 +24,6 @@ public class Student {
     private String stClass;
     // 家庭住址
     private String stHome;
+    // 父母ID
+    private Integer stParentsId;
 }
