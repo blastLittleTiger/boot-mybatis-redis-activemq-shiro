@@ -34,5 +34,13 @@ public class ParentsService {
         return mapper.getParentsByFatherMother(fatherName, motherName);
     }
 
+    public List<Student> getParentsKids1(Integer parentsId) {
+        return mapper.getParentsKids1(parentsId);
+    }
+
+    public List<Student> getParentsKids2(Integer parentsId) {
+        return mapper.getParentsKids2(parentsId);
+    }
+
 
 }

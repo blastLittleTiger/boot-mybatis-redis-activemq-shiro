@@ -40,4 +40,21 @@
         </where>
     </select>
 
+    <resultMap id="parentsHaveManyKids" type="com.zgy.learn.bootmybatisredisactivemq.pojo.Parents">
+        <result column="parentsId" property="parentsId"/>
+        <result column="fatherName" property="fatherName"/>
+        <result column="motherName" property="motherName"/>
+        <collection property="kids" ofType="com.zgy.learn.bootmybatisredisactivemq.pojo.Student">
+            <result column="stId" property="stId"/>
+            <result column="stName" property="stName"/>
+            <result column="stClass" property="stClass"/>
+            <result column="stGender" property="stGender"/>
+            <result column="stParentsId" property="stParentsId"/>
+        </collection>
+    </resultMap>
+    <select id="getParentsKids2" parameterType="integer" resultMap="parentsHaveManyKids">
+        select parentsId, fatherName, motherName, stId, stName, stClass, stGender, stParentsId from parents left join
+        student on parentsId = stParentsId where parentsId = #{parentsId}
+    </select>
+
 </mapper>

@@ -46,4 +46,14 @@ public class ParentsController {
     public String getParentsByFatherMother(String fatherName, String motherName) throws JsonProcessingException {
         return JSONUtil.getJsonFromObject(service.getParentsByFatherMother(fatherName, motherName));
     }
+
+    @GetMapping("kids1")
+    public String getParentsKids(Integer parentsId) throws JsonProcessingException {
+        return JSONUtil.getJsonFromObject(service.getParentsKids1(parentsId));
+    }
+
+    @GetMapping("kids2")
+    public String getParentsKidsById2(Integer parentsId) throws JsonProcessingException {
+        return JSONUtil.getJsonFromObject(service.getParentsKids2(parentsId));
+    }
 }
