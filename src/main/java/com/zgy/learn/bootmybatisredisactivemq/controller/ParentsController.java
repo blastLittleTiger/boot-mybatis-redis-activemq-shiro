@@ -25,7 +25,14 @@ public class ParentsController {
 
     @GetMapping("getparents")
     public String getParentsById(Integer parentsId) throws JsonProcessingException {
-        return JSONUtil.getJsonFromObject(service.getParentsById(parentsId));
+        // 先到缓存之中查，如果没有然后到数据库中查询并且缓存到缓存之中
+        if (redisService.hasKey(String.valueOf(parentsId))){
+            return JSONUtil.getJsonFromObject(redisService.get(String.valueOf(parentsId)) +"===》redis中获取!");
+        }else{
+            Parents p = service.getParentsById(parentsId);
+            redisService.set(String.valueOf(parentsId), p);
+            return JSONUtil.getJsonFromObject(p +"===》从数据库之中获取，并且缓存到redis之中!");
+        }
     }
 
     @PostMapping("add")
@@ -47,14 +54,14 @@ public class ParentsController {
     }
 
     @PostMapping("delete")
-    public String deleteParents(Integer parentId) throws JsonProcessingException {
-        if (redisService.hasKey(String.valueOf(parentId))) {
+    public String deleteParents(Integer parentsId) throws JsonProcessingException {
+        if (redisService.hasKey(String.valueOf(parentsId))) {
             // 先删除redis缓存，然后删除数据库值
-            redisService.del(String.valueOf(parentId));
-            service.deleteParents(parentId);
+            redisService.del(String.valueOf(parentsId));
+            service.deleteParents(parentsId);
             return JSONUtil.getJsonFromObject("删除redis缓存, 删除了数据库值!");
         } else {
-            service.deleteParents(parentId);
+            service.deleteParents(parentsId);
             return JSONUtil.getJsonFromObject("删除了数据库值!");
         }
     }
