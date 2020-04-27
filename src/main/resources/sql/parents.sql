@@ -21,15 +21,11 @@ CREATE TABLE IF NOT EXISTS `parents` (
 /*!40000 ALTER TABLE `parents` DISABLE KEYS */;
 INSERT INTO `parents` (`parentsId`, `fatherName`, `motherName`) VALUES
 	(100, '天', '地'),
-	(101, '太乙真人爸爸', '太乙真人妈妈'),
-	(102, '度厄真人爸爸', '度厄真人妈妈'),
 	(103, '石头人', '大地'),
 	(104, '李靖', '殷夫人'),
 	(105, '黄飞虎', '贾夫人'),
 	(106, '文王', '无'),
-	(108, '张飞', '刘夫人'),
-	(110, '李渊', 'demoData'),
-	(111, 'demoDataqqq==', 'demoDataeeee13131');
+	(108, '张飞', '刘夫人');
 /*!40000 ALTER TABLE `parents` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
