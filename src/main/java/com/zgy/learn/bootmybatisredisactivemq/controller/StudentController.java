@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,12 +38,14 @@ public class StudentController {
     @RequestMapping("getallstudent")
     @ResponseBody
     public String getallstudent() throws JsonProcessingException {
+        log.info("获取全部的学生，时间是{}" + LocalDateTime.now());
         return JSONUtil.getJsonFromObject(service.getAllStudents());
     }
 
     @RequestMapping(value = "addstudent", method = RequestMethod.POST)
     @ResponseBody
     public String addstudent(Student student) throws JsonProcessingException {
+        log.info("添加了学生 {}", student);
         return JSONUtil.getJsonFromObject(service.addStudent(student));
     }
 
