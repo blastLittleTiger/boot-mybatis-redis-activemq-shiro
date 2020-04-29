@@ -2,6 +2,7 @@ package com.zgy.learn.bootmybatisredisactivemq.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.zgy.learn.bootmybatisredisactivemq.pojo.Parents;
+import com.zgy.learn.bootmybatisredisactivemq.service.ActiveMQService;
 import com.zgy.learn.bootmybatisredisactivemq.service.ParentsService;
 import com.zgy.learn.bootmybatisredisactivemq.service.RedisService;
 import com.zgy.learn.bootmybatisredisactivemq.utils.JSONUtil;
@@ -26,11 +27,16 @@ public class ParentsController {
     @Autowired
     private RedisService redisService;
 
+    @Autowired
+    ActiveMQService activeMQService;
+
     @GetMapping("getparents")
     public String getParentsById(Integer parentsId) throws JsonProcessingException {
+        // activeMQService.createTopic("test");
         // 先到缓存之中查，如果没有然后到数据库中查询并且缓存到缓存之中
         if (redisService.hasKey(String.valueOf(parentsId))) {
             log.info("redis之中有该数据，key是{}", parentsId);
+            activeMQService.sendMessage("获取父母信息！===");
             return JSONUtil.getJsonFromObject(redisService.get(String.valueOf(parentsId)) + "===》redis中获取!");
         } else {
             Parents p = service.getParentsById(parentsId);
@@ -42,6 +48,7 @@ public class ParentsController {
 
     @PostMapping("add")
     public String addParents(String fatherName, String motherName) throws JsonProcessingException {
+        // activeMQService.createTopic("test");
         Map<String, Object> map = new HashMap<>();
         map.put("fatherName", fatherName);
         map.put("motherName", motherName);
@@ -51,6 +58,7 @@ public class ParentsController {
             Parents p = service.getParentsByFatherMother(fatherName, motherName);
             redisService.set(String.valueOf(p.getParentsId()), p);
             log.info("添加用户成功，已经添加到缓存之中! 时间是：{}", LocalDateTime.now());
+            activeMQService.sendMessage("创建用户成功！===");
             return JSONUtil.getJsonFromObject("添加用户成功，已经添加到缓存之中!");
         } else if (result == 0) {
             log.error("添加用户失败! 时间是：{}", LocalDateTime.now());
@@ -63,11 +71,13 @@ public class ParentsController {
 
     @PostMapping("delete")
     public String deleteParents(Integer parentsId) throws JsonProcessingException {
+        // activeMQService.createTopic("test");
         if (redisService.hasKey(String.valueOf(parentsId))) {
             // 先删除redis缓存，然后删除数据库值
             redisService.del(String.valueOf(parentsId));
             service.deleteParents(parentsId);
             log.warn("删除redis缓存, 删除了数据库值! 时间是：{}", LocalDateTime.now());
+            activeMQService.receiveMessage();
             return JSONUtil.getJsonFromObject("删除redis缓存, 删除了数据库值!");
         } else {
             service.deleteParents(parentsId);
