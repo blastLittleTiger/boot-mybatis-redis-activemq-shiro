@@ -29,6 +29,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- 如果配置线程池则加入 -->
+		<!-- <dependency> -->
+		<!-- 	<groupId>org.apache.activemq</groupId> -->
+		<!-- 	<artifactId>activemq-pool</artifactId> -->
+		<!-- </dependency> -->
 		<!-- 引入log4j2依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
