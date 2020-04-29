@@ -5,7 +5,7 @@
 <configuration status="debug" monitorInterval="30">
     <Properties>
         <!--自定义一些常量，之后使用${变量名}引用-->
-        <Property name="logFilePath">D:/home/mylog</Property>
+        <Property name="logFilePath">D:/logfile/boot-mybatis-redis-activemq/logs/</Property>
         <!-- 项目跑起来之后，日志的名称，rollingLog是每天运行的时候，生成的日志！-->
         <Property name="logFileName">all.log</Property>
     </Properties>
