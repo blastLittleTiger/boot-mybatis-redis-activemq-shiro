@@ -23,13 +23,13 @@ public class ActiveMQService {
     //    }
 
     public String sendMessage(String message){
-        template.convertAndSend("testQueue1", message);
+        template.convertAndSend("testQueue", message);
         return "send okay!";
     }
 
     //    @JmsListener(destination = "test")
     public String receiveMessage(){
-        Message<?> message = template.receive("testQueue1");
+        Message<?> message = template.receive("testQueue");
         return "receive okay!";
     }
 }
