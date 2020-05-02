@@ -18,6 +18,6 @@ springboot-druid-stater已经提供了默认值。
 PostWoman，或者RestfulToolkit的IDEA插件来实现操作，也可以配置Swagger来完成操作。
 
 
-### Shiro
+### 关于Shiro
 以我现在的了解，Shiro是对于页面的访问权限的一个控制的框架，对于接口的访问权限的控制，暂时不是很清楚。
 具体以后了解了，再到此处说明。
