@@ -10,9 +10,9 @@ import org.springframework.jms.annotation.EnableJms;
 @SpringBootApplication
 // 开启JMS支持，此处是ActiveMq
 @EnableJms
-public class BootMybatisRedisActivemqApplication {
+public class BootMybatisRedisActivemqShiroApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BootMybatisRedisActivemqApplication.class, args);
+        SpringApplication.run(BootMybatisRedisActivemqShiroApplication.class, args);
     }
 
 }
