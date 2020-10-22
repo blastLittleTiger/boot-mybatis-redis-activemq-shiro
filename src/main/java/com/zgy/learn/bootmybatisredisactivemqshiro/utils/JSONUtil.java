@@ -1,4 +1,4 @@
-package com.zgy.learn.bootmybatisredisactivemq.utils;
+package com.zgy.learn.bootmybatisredisactivemqshiro.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
